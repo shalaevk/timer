@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+	<link rel="stylesheet" href="timerStile.css">
+</head>
+<body>
+	<div class="timer">
+		<div class="timer__controls">
+			<button data-time="20" class="timer__button">20 secs</button>
+			<button data-time="300" class="timer__button">work 5</button>
+			<button data-time="900" class="timer__button">quick 15</button>
+			<button data-time="1200" class="timer__button">snack 20</button>
+			<button data-time="3600" class="timer__button">lunch breack</button>
+			<form name="customform" id="custom">
+				<input type="text" name="minutes" placeholder="Enter minutes">
+			</form>
+		</div>
+		<div class="display">
+			<h1 class="display__time--left"></h1>
+			<p class="display__time--end"></p>
+		</div>
+	</div>
+	<script src="timerJs/main.js"></script>
+</body>
+</html>
