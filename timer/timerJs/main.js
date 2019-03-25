@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 const btns = document.querySelectorAll('[data-time]');
 const input = document.querySelector('input');
 const form = document.querySelector('form');
@@ -54,7 +61,7 @@ const timer = (function() {/*Определяем общие переменны�
 		const remindHour = hour % 24;
 		const displayMinutes = `${remindHour}:${remindminutes}:${remindeSeconds < 10 ? 0 : ''}${remindeSeconds}`;
 		if(sec > 86400){
-			timerDysplay.textContent = `Дни:${days} ${remindHour}:${remindminutes}:${remindeSeconds < 10 ? 0 : ''}${remindeSeconds}`;
+			timerDisplay.textContent = `Дни:${days} ${remindHour}:${remindminutes}:${remindeSeconds < 10 ? 0 : ''}${remindeSeconds}`;
 		}else if(sec > 3600){
 				timerDisplay.textContent = `${hour}:${remindminutes}:${remindeSeconds < 10 ? 0 : ''}${remindeSeconds}`;
 		}else {
@@ -74,7 +81,7 @@ const timer = (function() {/*Определяем общие переменны�
 
 	function stop(){
 		clearInterval(countDown);
-		return timerDysplay.textContent = 'Timer was stopped';
+		return timerDisplay.textContent = 'Timer was stopped';
 	};
 
 	function playSound(){
@@ -93,7 +100,7 @@ timer.init({
 	timeEndSelector: '.display__time--end',
 	alarmSound: 'audio/die-antwoord_-_baby-s-on-fire.mp3'
 
-}).start(10000);
+}).start();
 
 function startTimer(e){
 	e.preventDefault();/*Отменили стандартное событие (перезагрузку страницы) при сабмите*/
@@ -108,17 +115,6 @@ function startTimer(e){
 btns.forEach(btn => btn.addEventListener('click', startTimer));/*Обходим циклом for each все кнопки и вешаем на них событие*/
 form.addEventListener('submit', startTimer);/*Вешаем слушатель событий ( по событию сабмит) на форму*/
 
-ajax.send({
-	method: 'GET',
-	url: 'https://jsonplaceholder.typicode.com/todos',
-	success: function(res){
-		let response = JSON.parse(res);
-		console.log(response)
-	},
-	error: function(err){
-		console.log(err)
-	}
-})
 
 
 
